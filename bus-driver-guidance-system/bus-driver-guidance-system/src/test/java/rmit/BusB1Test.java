@@ -37,3 +37,4 @@ public class BusB1Test {
         assertEquals(1, repo.count(), "Repository should contain only one bus");
     }
 }
+
