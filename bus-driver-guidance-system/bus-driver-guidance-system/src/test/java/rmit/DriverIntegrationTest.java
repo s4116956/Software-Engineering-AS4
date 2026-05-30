@@ -1,30 +1,39 @@
 package rmit;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 public class DriverIntegrationTest {
 
     private DriverRepository repo;
     private Path driverFilePath;
 
-    @BeforeEach
-    void setUp() {
+//     @BeforeEach
+//     void setUp() {
+//     driverFilePath = Path.of("drivers.txt").toAbsolutePath();
+//     System.out.println("drivers.txt will be created here: " + driverFilePath);
+//     repo = new DriverRepository(driverFilePath.toString());
+// }
+@BeforeEach
+void setUp() throws IOException {
     driverFilePath = Path.of("drivers.txt").toAbsolutePath();
+    Files.deleteIfExists(driverFilePath);
     System.out.println("drivers.txt will be created here: " + driverFilePath);
     repo = new DriverRepository(driverFilePath.toString());
 }
-
+@AfterEach
+void tearDown() throws IOException {
+    Files.deleteIfExists(driverFilePath);
+}
     private Driver createValidDriver(String idSuffix, String name, int exp) {
         return new Driver("45AB@#CD" + idSuffix, name, exp,
                 "Heavy", "123|Main Street|Melbourne|Victoria|Australia", "15-05-1990");

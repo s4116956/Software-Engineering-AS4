@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: rmit.BusB1Test
+Test set: rmit.DriverIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in rmit.BusB1Test
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in rmit.DriverIntegrationTest
